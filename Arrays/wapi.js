@@ -1,14 +1,27 @@
-var arr = [1, 2, 3];
+var arr = [0, 1, 2, 1, 2, 0, 1];
 
-// var newArr = [];
-// for (var a = arr.length - 1; a >= 0; a--) {
-//   newArr.push(arr[a]);
-// }
-// console.log(newArr);
+var l = 0;
+var m = 0;
+var h = arr.length - 1;
 
-let reverseArr = arr.reduceRight((acc, val) => {
-  acc.push(val);
-  return acc;
-}, []);
+while (m <= h) {
+  var x = arr[m];
 
-console.log(reverseArr);
+  if (x == 0) {
+    var temp = arr[l];
+    arr[l] = arr[m];
+    arr[m] = temp;
+
+    l++;
+    m++;
+  } else if (x == 1) {
+    m++;
+  } else {
+    var temp = arr[h];
+    arr[h] = arr[m];
+    arr[m] = temp;
+
+    h--;
+  }
+}
+console.log(arr);
